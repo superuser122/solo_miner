@@ -1,5 +1,5 @@
 [package]
-name = "solo_miner"
+name = "solo_lottery_miner"
 version = "0.1.0"
 edition = "2024"
 
@@ -17,3 +17,6 @@ byteorder = "1.4"
 
 # For working with hex strings (for hashes and data)
 hex = "0.4"
+
+# Comprehensive library for Bitcoin data structures and utility
+bitcoin = "0.32" 
