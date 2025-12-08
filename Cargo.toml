@@ -19,4 +19,9 @@ byteorder = "1.4"
 hex = "0.4"
 
 # Comprehensive library for Bitcoin data structures and utility
-bitcoin = "0.32" 
+bitcoin = "0.32.8" 
+
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+
+# For securely prompting the user for the RPC password
+rpassword = "7.0"
