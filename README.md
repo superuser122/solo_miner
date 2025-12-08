@@ -61,3 +61,13 @@ This project is a simple, command-line Bitcoin mining application built in **Rus
     * **Enter Password:** The application will prompt you securely for the **`rpc_pass`** at runtime (it is never saved to disk).
 
 5.  **Start Mining:** The application will connect to the node, fetch the latest `prev_block_hash` and `nBits` data, and begin the high-speed hashing loop.
+
+⚠️ Important Limitation (Next Feature):
+
+If your miner finds a valid Nonce that solves the Proof-of-Work puzzle:
+
+    •   It will correctly announce the block as found and print the Nonce and Hash.
+
+    •   It does NOT currently submit the block to the Bitcoin network. The application will stop.
+
+    •   The necessary RPC implementation (the submitblock call) will be implemented in the next development step.
