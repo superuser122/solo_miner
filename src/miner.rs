@@ -15,7 +15,7 @@ pub fn sha256d(data: &[u8]) -> [u8; 32] {
     let hash1 = Sha256::digest(data);
     let hash2 = Sha256::digest(&hash1);
     
-    // The hash is returned in little-endian order (how it's used in Bitcoin protocol)
+    // The hash is returned in big-endian order 
     hash2.into()
 }
 
