@@ -60,9 +60,11 @@ This project is a simple, command-line Bitcoin mining application built in **Rus
     * **Edit `miner_config.json`:** Update the **`rpc_url`**, **`rpc_user`**, and crucially, set your **`reward_address`**.
     * **Enter Password:** The application will prompt you securely for the **`rpc_pass`** at runtime (it is never saved to disk).
 
-5.  **Start Mining:** The application will connect to the node, fetch the latest `prev_block_hash` and `nBits` data, and begin the high-speed hashing loop.
+5.  **Start Mining and Current Limitations:**
 
-⚠️ **Important Limitation (Next Feature):**
+    The application will connect to the node, fetch the latest block data, and begin the high-speed hashing loop.
+
+    ⚠️ **Important Limitation (Next Feature):**
 
     If your miner finds a valid **Nonce** that solves the Proof-of-Work puzzle:
 
