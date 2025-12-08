@@ -23,20 +23,41 @@ This project is a simple, command-line Bitcoin mining application built in **Rus
 
 ### Prerequisites
 
-* Rust toolchain (installed via `rustup`)
+1.  **Rust Toolchain:** Installed via `rustup`.
+2.  **Bitcoin Core Node:** A fully synchronized Bitcoin Core instance running on the same network.
+3.  **RPC Credentials:** Access credentials configured in your node's `bitcoin.conf`.
 
-### Running the Miner
+### Setup Steps
 
-1.  Clone the repository:
+1.  **Clone the Repository:**
     ```bash
-    git clone [YOUR-REPO-LINK]
-    cd solo_lottery_miner
+    git clone https://github.com/superuser122/solo_miner.git
+    cd solo_miner 
     ```
-2.  Build and run the application:
-    ```bash
-    cargo run
-    ```
-    *(The first run will generate a `miner_config.json` file where you can specify your version, target difficulty, and reward address.)*
-3.  Modify the generated `miner_config.json` with the parameters you want to test.
 
----
+2.  **Configure Bitcoin Core (Mandatory):**
+    Edit your node's `bitcoin.conf` file to enable RPC access and set a username/password.
+    ```ini
+    server=1
+    rpcallowip=127.0.0.1  # Or the IP of the miner machine
+    rpcuser=your_custom_user
+    rpcpassword=a_secure_password
+    ```
+
+3.  **Build the Project:**
+    ```bash
+    cargo build --release
+    ```
+    *(Use `--release` for optimal hashing performance.)*
+
+4.  **Run the Miner and Configure RPC:**
+    The first time you run it, the file `miner_config.json` will be created.
+
+    ```bash
+    cargo run --release
+    ```
+
+    * **Edit `miner_config.json`:** Update the **`rpc_url`**, **`rpc_user`**, and crucially, set your **`reward_address`**.
+    * **Enter Password:** The application will prompt you securely for the **`rpc_pass`** at runtime (it is never saved to disk).
+
+5.  **Start Mining:** The application will connect to the node, fetch the latest `prev_block_hash` and `nBits` data, and begin the high-speed hashing loop.
